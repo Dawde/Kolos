@@ -26,7 +26,7 @@ namespace Kolos
         {
             InitializeComponent();
             this.ActiveUserControl = wprowadzanie1;
-           // ActiveUserControl.Visible = false;
+            ActiveUserControl.Visible = false;
             counter = Int32.Parse(czas.Text);
             this.ActiveControl = textBoxNazwaGracza;
 
@@ -84,9 +84,9 @@ namespace Kolos
                 if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     current = openFileDialog.FileName.ToString();
-                    XDocument doc = new XDocument(current);
-                    litera.Text = doc.Root.Attribute("litera").Value;
-                    czas.Text = doc.Root.Attribute("czas").Value;
+                    XDocument document = XDocument.Load(current);
+                    litera.Text = document.Root.Attribute("litera").Value;
+                    czas.Text = document.Root.Attribute("czas").Value;
                     counter = Int32.Parse(czas.Text);
                     SwitchUserControl(wprowadzanie1);
                     if (ActiveUserControl is Wprowadzanie)
@@ -198,7 +198,7 @@ namespace Kolos
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            if(ActiveUserControl is Wprowadzanie)
+           /* if(ActiveUserControl is Wprowadzanie)
             {
                 if(ActiveUserControl.Visible == false)
                 {
@@ -209,7 +209,7 @@ namespace Kolos
                         tmp.obecny = current;
                     }
                 }
-            }
+            }*/
             
         }
     }

@@ -48,7 +48,6 @@
             this.zmieńNazweToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wprowadzanie1 = new Kolos.Wprowadzanie();
             this.tabela1 = new Kolos.Tabela();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.contextMenuStripCzas.SuspendLayout();
             this.contextMenuStripNazwa.SuspendLayout();
             this.SuspendLayout();
@@ -218,19 +217,11 @@
             this.tabela1.TabIndex = 14;
             this.tabela1.Visible = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(363, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(411, 20);
-            this.textBox1.TabIndex = 15;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 370);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.nazwaGracza);
             this.Controls.Add(this.wprowadzanie1);
             this.Controls.Add(this.buttonLosuj);
@@ -273,7 +264,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStripNazwa;
         private System.Windows.Forms.ToolStripMenuItem zmieńNazweToolStripMenuItem;
         private Tabela tabela1;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
