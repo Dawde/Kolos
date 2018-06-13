@@ -30,14 +30,13 @@
         {
             this.listViewTabela = new System.Windows.Forms.ListView();
             this.Litera = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Gracz = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Panstwo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Miasto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Roslina = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Zwierze = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Rzecz = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Imie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Gracz = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Punktacja = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listViewTabela
@@ -51,20 +50,26 @@
             this.Roslina,
             this.Zwierze,
             this.Rzecz,
-            this.Imie,
-            this.Punktacja});
+            this.Imie});
             this.listViewTabela.GridLines = true;
             this.listViewTabela.Location = new System.Drawing.Point(3, 3);
             this.listViewTabela.Name = "listViewTabela";
-            this.listViewTabela.Size = new System.Drawing.Size(748, 316);
+            this.listViewTabela.Size = new System.Drawing.Size(694, 316);
             this.listViewTabela.TabIndex = 1;
             this.listViewTabela.UseCompatibleStateImageBehavior = false;
             this.listViewTabela.View = System.Windows.Forms.View.Details;
+            this.listViewTabela.MouseMove += new System.Windows.Forms.MouseEventHandler(this.listViewTabela_MouseMove);
             // 
             // Litera
             // 
             this.Litera.Text = "Litera";
             this.Litera.Width = 41;
+            // 
+            // Gracz
+            // 
+            this.Gracz.Text = "Gracz";
+            this.Gracz.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Gracz.Width = 89;
             // 
             // Panstwo
             // 
@@ -76,19 +81,19 @@
             // 
             this.Miasto.Text = "Miasto";
             this.Miasto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Miasto.Width = 85;
+            this.Miasto.Width = 96;
             // 
             // Roslina
             // 
             this.Roslina.Text = "Roślina";
             this.Roslina.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Roslina.Width = 75;
+            this.Roslina.Width = 94;
             // 
             // Zwierze
             // 
             this.Zwierze.Text = "Zwierzę";
             this.Zwierze.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Zwierze.Width = 89;
+            this.Zwierze.Width = 96;
             // 
             // Rzecz
             // 
@@ -100,19 +105,7 @@
             // 
             this.Imie.Text = "Imię";
             this.Imie.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Imie.Width = 81;
-            // 
-            // Gracz
-            // 
-            this.Gracz.Text = "Gracz";
-            this.Gracz.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Gracz.Width = 89;
-            // 
-            // Punktacja
-            // 
-            this.Punktacja.Text = "Punktacja";
-            this.Punktacja.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Punktacja.Width = 98;
+            this.Imie.Width = 93;
             // 
             // Tabela
             // 
@@ -120,7 +113,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.listViewTabela);
             this.Name = "Tabela";
-            this.Size = new System.Drawing.Size(742, 322);
+            this.Size = new System.Drawing.Size(700, 322);
             this.ResumeLayout(false);
 
         }
@@ -136,6 +129,5 @@
         private System.Windows.Forms.ColumnHeader Rzecz;
         private System.Windows.Forms.ColumnHeader Imie;
         private System.Windows.Forms.ColumnHeader Gracz;
-        private System.Windows.Forms.ColumnHeader Punktacja;
     }
 }

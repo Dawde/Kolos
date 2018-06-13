@@ -15,13 +15,15 @@ namespace Kolos
         public Tabela()
         {
             InitializeComponent();
-            test();
+            
         }
 
-        private void test()
+        public string obecny { get; set; }
+
+        private void listViewTabela_MouseMove(object sender, MouseEventArgs e)
         {
-            var test = new ListViewItem(new[] { "A", "Assss", "AAAAAA", "asdasd", "agfsfdsfs", "sgasda", "sadasdad" });
-            listViewTabela.Items.Add(test);
+            if(!String.IsNullOrWhiteSpace(obecny))
+            listViewTabela.Columns.Add(obecny);
         }
     }
 }

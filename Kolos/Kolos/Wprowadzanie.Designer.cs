@@ -40,7 +40,7 @@
             this.labelZwierze = new System.Windows.Forms.Label();
             this.labelRzecz = new System.Windows.Forms.Label();
             this.labelImie = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonZakoncz = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxPanstwo
@@ -175,23 +175,24 @@
             this.labelImie.TabIndex = 11;
             this.labelImie.Text = "Imię";
             // 
-            // button1
+            // buttonZakoncz
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.buttonZakoncz.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(325, 218);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Zakończ";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonZakoncz.Location = new System.Drawing.Point(325, 218);
+            this.buttonZakoncz.Name = "buttonZakoncz";
+            this.buttonZakoncz.Size = new System.Drawing.Size(75, 23);
+            this.buttonZakoncz.TabIndex = 12;
+            this.buttonZakoncz.Text = "Zakończ";
+            this.buttonZakoncz.UseVisualStyleBackColor = true;
+            this.buttonZakoncz.Click += new System.EventHandler(this.buttonZakoncz_Click);
             // 
             // Wprowadzanie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonZakoncz);
             this.Controls.Add(this.labelImie);
             this.Controls.Add(this.labelRzecz);
             this.Controls.Add(this.labelZwierze);
@@ -225,6 +226,6 @@
         private System.Windows.Forms.Label labelZwierze;
         private System.Windows.Forms.Label labelRzecz;
         private System.Windows.Forms.Label labelImie;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonZakoncz;
     }
 }
