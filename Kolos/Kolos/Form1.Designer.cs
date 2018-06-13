@@ -33,16 +33,15 @@
             this.buttonWczytaj = new System.Windows.Forms.Button();
             this.labelCzas = new System.Windows.Forms.Label();
             this.czas = new System.Windows.Forms.Label();
+            this.contextMenuStripCzas = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.labelLitera = new System.Windows.Forms.Label();
             this.litera = new System.Windows.Forms.Label();
             this.buttonLosuj = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.NowaSesja = new System.Windows.Forms.SaveFileDialog();
-            this.contextMenuStripCzas = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabela1 = new Kolos.Tabela();
             this.contextMenuStripCzas.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,6 +85,37 @@
             this.czas.TabIndex = 3;
             this.czas.Text = "60";
             // 
+            // contextMenuStripCzas
+            // 
+            this.contextMenuStripCzas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4});
+            this.contextMenuStripCzas.Name = "contextMenuStripCzas";
+            this.contextMenuStripCzas.Size = new System.Drawing.Size(93, 70);
+            this.contextMenuStripCzas.Text = "Ilość czasu";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(92, 22);
+            this.toolStripMenuItem2.Text = "60";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(92, 22);
+            this.toolStripMenuItem3.Text = "90";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(92, 22);
+            this.toolStripMenuItem4.Text = "120";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
+            // 
             // labelLitera
             // 
             this.labelLitera.AutoSize = true;
@@ -119,59 +149,23 @@
             // 
             this.openFileDialog.Filter = "Pliki XML|*.xml";
             this.openFileDialog.RestoreDirectory = true;
+            this.openFileDialog.Title = "Wczytaj";
             this.openFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // NowaSesja
             // 
             this.NowaSesja.CreatePrompt = true;
             this.NowaSesja.DefaultExt = "xml";
+            this.NowaSesja.FileName = "ass";
             this.NowaSesja.Filter = "Pliki XML|*.xml";
             this.NowaSesja.RestoreDirectory = true;
-            // 
-            // contextMenuStripCzas
-            // 
-            this.contextMenuStripCzas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem4});
-            this.contextMenuStripCzas.Name = "contextMenuStripCzas";
-            this.contextMenuStripCzas.Size = new System.Drawing.Size(93, 70);
-            this.contextMenuStripCzas.Text = "Ilość czasu";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(92, 22);
-            this.toolStripMenuItem2.Text = "60";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(92, 22);
-            this.toolStripMenuItem3.Text = "90";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(92, 22);
-            this.toolStripMenuItem4.Text = "120";
-            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
-            // 
-            // tabela1
-            // 
-            this.tabela1.Location = new System.Drawing.Point(93, 41);
-            this.tabela1.Name = "tabela1";
-            this.tabela1.Size = new System.Drawing.Size(742, 322);
-            this.tabela1.TabIndex = 7;
+            this.NowaSesja.Title = "Tworzenie nowej sesji";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 370);
-            this.Controls.Add(this.tabela1);
             this.Controls.Add(this.buttonLosuj);
             this.Controls.Add(this.litera);
             this.Controls.Add(this.labelLitera);

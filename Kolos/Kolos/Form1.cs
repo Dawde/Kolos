@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 
 namespace Kolos
@@ -32,10 +33,11 @@ namespace Kolos
         private void button1_Click(object sender, EventArgs e)
         {
             DialogResult zapisz = this.NowaSesja.ShowDialog();
-           /* if(NowaSesja.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if(NowaSesja.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                using ()
-            }*/
+                string nazwaPliku = NowaSesja.FileName.ToString();
+                using (StreamWriter)
+            }
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
