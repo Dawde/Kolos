@@ -58,7 +58,6 @@
             this.listViewTabela.TabIndex = 1;
             this.listViewTabela.UseCompatibleStateImageBehavior = false;
             this.listViewTabela.View = System.Windows.Forms.View.Details;
-            this.listViewTabela.MouseMove += new System.Windows.Forms.MouseEventHandler(this.listViewTabela_MouseMove);
             // 
             // Litera
             // 

@@ -1,6 +1,6 @@
 ﻿namespace Kolos
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Wymagana zmienna projektanta.
@@ -43,11 +43,9 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.NowaSesja = new System.Windows.Forms.SaveFileDialog();
             this.nazwaGracza = new System.Windows.Forms.Label();
-            this.textBoxNazwaGracza = new System.Windows.Forms.TextBox();
             this.contextMenuStripNazwa = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.zmieńNazweToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.wprowadzanie1 = new Kolos.Wprowadzanie();
-            this.tabela1 = new Kolos.Tabela();
+            this.textBoxNazwaGracza = new System.Windows.Forms.TextBox();
             this.contextMenuStripCzas.SuspendLayout();
             this.contextMenuStripNazwa.SuspendLayout();
             this.SuspendLayout();
@@ -176,15 +174,6 @@
             this.nazwaGracza.TabIndex = 11;
             this.nazwaGracza.Visible = false;
             // 
-            // textBoxNazwaGracza
-            // 
-            this.textBoxNazwaGracza.Location = new System.Drawing.Point(179, 14);
-            this.textBoxNazwaGracza.Name = "textBoxNazwaGracza";
-            this.textBoxNazwaGracza.Size = new System.Drawing.Size(110, 20);
-            this.textBoxNazwaGracza.TabIndex = 12;
-            this.textBoxNazwaGracza.WordWrap = false;
-            this.textBoxNazwaGracza.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNazwaGracza_KeyPress);
-            // 
             // contextMenuStripNazwa
             // 
             this.contextMenuStripNazwa.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -199,31 +188,21 @@
             this.zmieńNazweToolStripMenuItem.Text = "Zmień nazwe";
             this.zmieńNazweToolStripMenuItem.Click += new System.EventHandler(this.zmieńNazweToolStripMenuItem_Click);
             // 
-            // wprowadzanie1
+            // textBoxNazwaGracza
             // 
-            this.wprowadzanie1.currentFile = null;
-            this.wprowadzanie1.Location = new System.Drawing.Point(271, 36);
-            this.wprowadzanie1.Name = "wprowadzanie1";
-            this.wprowadzanie1.playerName = null;
-            this.wprowadzanie1.Size = new System.Drawing.Size(478, 322);
-            this.wprowadzanie1.TabIndex = 9;
+            this.textBoxNazwaGracza.Location = new System.Drawing.Point(179, 14);
+            this.textBoxNazwaGracza.Name = "textBoxNazwaGracza";
+            this.textBoxNazwaGracza.Size = new System.Drawing.Size(110, 20);
+            this.textBoxNazwaGracza.TabIndex = 12;
+            this.textBoxNazwaGracza.WordWrap = false;
+            this.textBoxNazwaGracza.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNazwaGracza_KeyPress);
             // 
-            // tabela1
-            // 
-            this.tabela1.Location = new System.Drawing.Point(113, 41);
-            this.tabela1.Name = "tabela1";
-            this.tabela1.obecny = null;
-            this.tabela1.Size = new System.Drawing.Size(701, 322);
-            this.tabela1.TabIndex = 14;
-            this.tabela1.Visible = false;
-            // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 370);
             this.Controls.Add(this.nazwaGracza);
-            this.Controls.Add(this.wprowadzanie1);
             this.Controls.Add(this.buttonLosuj);
             this.Controls.Add(this.litera);
             this.Controls.Add(this.labelLitera);
@@ -232,10 +211,8 @@
             this.Controls.Add(this.buttonWczytaj);
             this.Controls.Add(this.buttonZapisz);
             this.Controls.Add(this.textBoxNazwaGracza);
-            this.Controls.Add(this.tabela1);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Państwa miasta";
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.contextMenuStripCzas.ResumeLayout(false);
             this.contextMenuStripNazwa.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -258,12 +235,10 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private Wprowadzanie wprowadzanie1;
         private System.Windows.Forms.Label nazwaGracza;
         private System.Windows.Forms.TextBox textBoxNazwaGracza;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripNazwa;
         private System.Windows.Forms.ToolStripMenuItem zmieńNazweToolStripMenuItem;
-        private Tabela tabela1;
     }
 }
 

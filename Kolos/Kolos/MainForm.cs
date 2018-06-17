@@ -12,24 +12,32 @@ using System.Xml.Linq;
 
 namespace Kolos
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
        public string current;
 
         private Timer timer1;
         private int counter;
         private char c;
+         
         
-        private Control ActiveUserControl { get; set; }
+       // public Control ActiveUserControl { get; set; }
 
-        public Form1()
+        public MainForm()
         {
+            
             InitializeComponent();
-            this.ActiveUserControl = wprowadzanie1;
-            ActiveUserControl.Visible = false;
+            Wprowadzanie.Instance.TimerStop += new EventHandler(Stop);
+           // this.ActiveUserControl = wprowadzanie1;
+           // ActiveUserControl.Visible = false;
             counter = Int32.Parse(czas.Text);
             this.ActiveControl = textBoxNazwaGracza;
 
+        }
+
+        private void Stop(Object sender, EventArgs e)
+        {
+            timer1.Stop();
         }
 
         private void check()
@@ -39,20 +47,20 @@ namespace Kolos
 
         }
 
-        public void SwitchUserControl(Control controls)
+       /* public void SwitchUserControl(Control controls)
         {
             ActiveUserControl.Visible = false;
             controls.Visible = true;
             this.ActiveUserControl = controls;
-        }
+        }*/
 
         private void odliczanie()
         {
-            timer1 = new System.Windows.Forms.Timer();
-            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1 = new Timer();
+            timer1.Tick += new EventHandler(timer1_Tick);            
             timer1.Interval = 1000; // 1 second
             timer1.Start();
-            czas.Text = counter.ToString();
+            //czas.Text = counter.ToString();
         }
 
         private void losowanie()
@@ -77,23 +85,36 @@ namespace Kolos
 
         private void buttonWczytaj_Click(object sender, EventArgs e)
         {
+           // if (timer1.Enabled == true)
+           //     timer1.Stop();
             if (!String.IsNullOrWhiteSpace(nazwaGracza.Text))
             {
 
 
-                if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
+                    //Tabela.Instance.tFile = openFileDialog.FileName.ToString();
+                    if (Tabela.Instance != null)
+                    {
+                        this.Controls.Remove(Tabela.Instance);
+
+                        Tabela.Instance = null;
+                    }
                     current = openFileDialog.FileName.ToString();
                     XDocument document = XDocument.Load(current);
                     litera.Text = document.Root.Attribute("litera").Value;
                     czas.Text = document.Root.Attribute("czas").Value;
                     counter = Int32.Parse(czas.Text);
-                    SwitchUserControl(wprowadzanie1);
-                    if (ActiveUserControl is Wprowadzanie)
-                    {
-                        Wprowadzanie tmp = ActiveUserControl as Wprowadzanie;
-                        tmp.currentFile = current;
-                    }
+                    this.Controls.Add(Wprowadzanie.Instance);
+                    UC uCwprowadzanie = new UC(current, nazwaGracza.Text);
+                    // SwitchUserControl(wprowadzanie1);
+                    /* if (ActiveUserControl is Wprowadzanie)
+                     {
+                         Wprowadzanie tmp = ActiveUserControl as Wprowadzanie;
+                         tmp.currentFile = current;
+                     }*/
+                    odliczanie();
+
                 }
             }
             else check();
@@ -104,27 +125,43 @@ namespace Kolos
 
         private void buttonNowa_Click(object sender, EventArgs e)
         {
+            //if(timer1.Enabled == true)
+             //    timer1.Stop();
             if (!String.IsNullOrWhiteSpace(nazwaGracza.Text))
             {
                 losowanie();
-                if (NowaSesja.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (NowaSesja.ShowDialog() == DialogResult.OK)
                 {
-                    string letter = c.ToString();
-                    string time = czas.Text;
-                    XDocument document = new XDocument(
+                    if (Tabela.Instance != null)
+                    {
+                        this.Controls.Remove(Tabela.Instance);
+                        Tabela.Instance = null;
+                    }
+                    char letter = c;
+                    int time = counter;//Int32.Parse(czas.Text);
+                    current = NowaSesja.FileName.ToString();
+                    
+                    /*XDocument document = new XDocument(
                         new XElement("Sesja",
                         new XAttribute("litera", letter),
                         new XAttribute("czas", time)));
-                    document.Save(NowaSesja.FileName.ToString());
-                    current = NowaSesja.FileName.ToString();
+                    document.Save(NowaSesja.FileName.ToString());*/
+                    Sesja sesja = new Sesja(letter, time, current);
                     litera.Text = c.ToString();
-                    SwitchUserControl(wprowadzanie1);
+                    //SwitchUserControl(wprowadzanie1);
+                    this.Controls.Add(Wprowadzanie.Instance);
+                    UC uCwprowadzanie = new UC(current, nazwaGracza.Text);
+                    /*Wprowadzanie.Instance.BringToFront();
+                    Wprowadzanie.Instance.Location = new Point(271, 36);
+                    Wprowadzanie.Instance.Size = new Size(478, 322);
+                    Wprowadzanie.Instance.currentFile = current;
+                    Wprowadzanie.Instance.playerName = nazwaGracza.Text;*/
                     odliczanie();
-                    if (ActiveUserControl is Wprowadzanie)
+                   /* if (ActiveUserControl is Wprowadzanie)
                     {
                         Wprowadzanie tmp = ActiveUserControl as Wprowadzanie;
                         tmp.currentFile = current;
-                    }
+                    }*/
 
 
                 }
@@ -167,11 +204,12 @@ namespace Kolos
 
         private void buttonLosuj_Click(object sender, EventArgs e)
         {
-            Random r = new Random();
-            string alfabet = "ABCDEFGHIJKLMNOPRSTUWZ";
-            c = alfabet[r.Next(alfabet.Length)];
+            //Random r = new Random();
+            //string alfabet = "ABCDEFGHIJKLMNOPRSTUWZ";
+            //c = alfabet[r.Next(alfabet.Length)];
+            losowanie();
             litera.Text = c.ToString();
-            SwitchUserControl(wprowadzanie1);
+           // SwitchUserControl(wprowadzanie1);
             odliczanie();
         }
 
@@ -182,11 +220,11 @@ namespace Kolos
                 nazwaGracza.Text = textBoxNazwaGracza.Text;
                 textBoxNazwaGracza.Visible = false;
                 nazwaGracza.Visible = true;
-                if (ActiveUserControl is Wprowadzanie)
+               /* if (ActiveUserControl is Wprowadzanie)
                 {
                     Wprowadzanie tmp = ActiveUserControl as Wprowadzanie;
                     tmp.playerName = nazwaGracza.Text;
-                }
+                }*/
             }
         }
 
@@ -196,21 +234,6 @@ namespace Kolos
             nazwaGracza.Visible = false;
         }
 
-        private void Form1_MouseMove(object sender, MouseEventArgs e)
-        {
-           /* if(ActiveUserControl is Wprowadzanie)
-            {
-                if(ActiveUserControl.Visible == false)
-                {
-                    SwitchUserControl(tabela1);
-                    if (ActiveUserControl is Tabela)
-                    {
-                        Tabela tmp = ActiveUserControl as Tabela;
-                        tmp.obecny = current;
-                    }
-                }
-            }*/
-            
-        }
+        
     }
 }
