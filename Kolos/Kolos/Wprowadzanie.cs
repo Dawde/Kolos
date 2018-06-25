@@ -15,6 +15,9 @@ namespace Kolos
     {
         public string currentFile { get; set; }
         public string playerName { get; set; }
+        public string Litera { get; set; }
+
+        
 
         public event EventHandler TimerStop;
 
@@ -52,19 +55,38 @@ namespace Kolos
                 new XElement("Imię", textBoxImie.Text)
                 ));
             plik.Save(currentFile);*/
+
+            /*Sesja sesja = new Sesja(playerName, textBoxPanstwo.Text, textBoxMiasto.Text, textBoxRoslina.Text, textBoxZwierze.Text, textBoxRzecz.Text, textBoxImie.Text, currentFile);
+            //this.Visible = false;
+            this.Parent.Controls.Add(Tabela.Instance);
+            UC Cwprowadzanie = new UC(currentFile);
+            this.Parent.Controls.Remove(Wprowadzanie.Instance);
+            Wprowadzanie.Instance = null;
+            TimerStop(this,e);*/
+
+            /* Tabela.Instance.BringToFront();
+             Tabela.Instance.Location = new Point(113, 41);
+             Tabela.Instance.Size = new Size(701, 322);
+             this.Parent.Controls.Add();*/
+            zakoncz(this, e);
+
+        }
+
+        public void zakoncz(object sender, EventArgs e)
+        {
             Sesja sesja = new Sesja(playerName, textBoxPanstwo.Text, textBoxMiasto.Text, textBoxRoslina.Text, textBoxZwierze.Text, textBoxRzecz.Text, textBoxImie.Text, currentFile);
             //this.Visible = false;
             this.Parent.Controls.Add(Tabela.Instance);
             UC Cwprowadzanie = new UC(currentFile);
             this.Parent.Controls.Remove(Wprowadzanie.Instance);
             Wprowadzanie.Instance = null;
-            TimerStop(this,e);
-           /* Tabela.Instance.BringToFront();
-            Tabela.Instance.Location = new Point(113, 41);
-            Tabela.Instance.Size = new Size(701, 322);
-            this.Parent.Controls.Add();*/
+            TimerStop(this, e);
+        }
 
-
+        private void textBoxPanstwo_TextChanged(object sender, EventArgs e)
+        {
+            if (!textBoxPanstwo.Text.StartsWith(Litera.ToString()))
+                textBoxPanstwo.Text = "";
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Kolos
 {
     public class UC
     {
-        public UC(string current,string nazwaGracza)
+        public UC(string current,string nazwaGracza, string litera)
         {
             
             Wprowadzanie.Instance.BringToFront();
@@ -18,6 +18,7 @@ namespace Kolos
             Wprowadzanie.Instance.Size = new Size(478, 322);
             Wprowadzanie.Instance.currentFile = current;
             Wprowadzanie.Instance.playerName = nazwaGracza;
+            Wprowadzanie.Instance.Litera = litera;
         }
 
         public UC(string current)

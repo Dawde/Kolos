@@ -74,7 +74,11 @@ namespace Kolos
         {
             counter--;
             if (counter == 0)
+            {
                 timer1.Stop();
+                Wprowadzanie.Instance.zakoncz(this, e);
+            }
+
             czas.Text = counter.ToString();
         }
         
@@ -109,7 +113,7 @@ namespace Kolos
                     counter = Int32.Parse(czas.Text);
                     this.Controls.Add(Wprowadzanie.Instance);
                     Wprowadzanie.Instance.TimerStop += new EventHandler(Stop);
-                    UC uCwprowadzanie = new UC(current, nazwaGracza.Text);
+                    UC uCwprowadzanie = new UC(current, nazwaGracza.Text, litera.Text);
                     // SwitchUserControl(wprowadzanie1);
                     /* if (ActiveUserControl is Wprowadzanie)
                      {
@@ -154,7 +158,7 @@ namespace Kolos
                     //SwitchUserControl(wprowadzanie1);
                     this.Controls.Add(Wprowadzanie.Instance);
                     Wprowadzanie.Instance.TimerStop += new EventHandler(Stop);
-                    UC uCwprowadzanie = new UC(current, nazwaGracza.Text);
+                    UC uCwprowadzanie = new UC(current, nazwaGracza.Text, litera.Text);
                     /*Wprowadzanie.Instance.BringToFront();
                     Wprowadzanie.Instance.Location = new Point(271, 36);
                     Wprowadzanie.Instance.Size = new Size(478, 322);
@@ -238,6 +242,14 @@ namespace Kolos
             nazwaGracza.Visible = false;
         }
 
-        
+        private void textBoxNazwaGracza_Leave(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(textBoxNazwaGracza.Text))
+            {
+                nazwaGracza.Text = textBoxNazwaGracza.Text;
+                textBoxNazwaGracza.Visible = false;
+                nazwaGracza.Visible = true;
+            }
+        }
     }
 }

@@ -196,6 +196,7 @@
             this.textBoxNazwaGracza.TabIndex = 12;
             this.textBoxNazwaGracza.WordWrap = false;
             this.textBoxNazwaGracza.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNazwaGracza_KeyPress);
+            this.textBoxNazwaGracza.Leave += new System.EventHandler(this.textBoxNazwaGracza_Leave);
             // 
             // MainForm
             // 

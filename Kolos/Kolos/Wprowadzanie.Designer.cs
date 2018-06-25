@@ -52,6 +52,7 @@
             this.textBoxPanstwo.Name = "textBoxPanstwo";
             this.textBoxPanstwo.Size = new System.Drawing.Size(100, 20);
             this.textBoxPanstwo.TabIndex = 0;
+            this.textBoxPanstwo.TextChanged += new System.EventHandler(this.textBoxPanstwo_TextChanged);
             // 
             // textBoxMiasto
             // 

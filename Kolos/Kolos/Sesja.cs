@@ -32,6 +32,7 @@ namespace Kolos
                 new XElement("Imię", name)
                 ));
             plik.Save(path);
+            
         }
     }
 }
