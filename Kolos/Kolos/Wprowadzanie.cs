@@ -40,7 +40,6 @@ namespace Kolos
 
         private void buttonZakoncz_Click(object sender, EventArgs e)
         {
-
             /*XDocument plik = XDocument.Load(currentFile);
             plik.Root.Add(
                 new XElement("Gracz",

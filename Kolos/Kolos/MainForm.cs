@@ -14,8 +14,9 @@ namespace Kolos
 {
     public partial class MainForm : Form
     {
-       public string current;
+        private string current;
 
+        public int coounter{get {return counter;}}
         private Timer timer1;
         private int counter;
         private char c;
@@ -27,7 +28,6 @@ namespace Kolos
         {
             
             InitializeComponent();
-            Wprowadzanie.Instance.TimerStop += new EventHandler(Stop);
            // this.ActiveUserControl = wprowadzanie1;
            // ActiveUserControl.Visible = false;
             counter = Int32.Parse(czas.Text);
@@ -38,6 +38,7 @@ namespace Kolos
         private void Stop(Object sender, EventArgs e)
         {
             timer1.Stop();
+            counter = 60;
         }
 
         private void check()
@@ -60,7 +61,6 @@ namespace Kolos
             timer1.Tick += new EventHandler(timer1_Tick);            
             timer1.Interval = 1000; // 1 second
             timer1.Start();
-            //czas.Text = counter.ToString();
         }
 
         private void losowanie()
@@ -94,18 +94,21 @@ namespace Kolos
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     //Tabela.Instance.tFile = openFileDialog.FileName.ToString();
+
                     if (Tabela.Instance != null)
                     {
                         this.Controls.Remove(Tabela.Instance);
 
                         Tabela.Instance = null;
                     }
+
                     current = openFileDialog.FileName.ToString();
                     XDocument document = XDocument.Load(current);
                     litera.Text = document.Root.Attribute("litera").Value;
                     czas.Text = document.Root.Attribute("czas").Value;
                     counter = Int32.Parse(czas.Text);
                     this.Controls.Add(Wprowadzanie.Instance);
+                    Wprowadzanie.Instance.TimerStop += new EventHandler(Stop);
                     UC uCwprowadzanie = new UC(current, nazwaGracza.Text);
                     // SwitchUserControl(wprowadzanie1);
                     /* if (ActiveUserControl is Wprowadzanie)
@@ -150,6 +153,7 @@ namespace Kolos
                     litera.Text = c.ToString();
                     //SwitchUserControl(wprowadzanie1);
                     this.Controls.Add(Wprowadzanie.Instance);
+                    Wprowadzanie.Instance.TimerStop += new EventHandler(Stop);
                     UC uCwprowadzanie = new UC(current, nazwaGracza.Text);
                     /*Wprowadzanie.Instance.BringToFront();
                     Wprowadzanie.Instance.Location = new Point(271, 36);

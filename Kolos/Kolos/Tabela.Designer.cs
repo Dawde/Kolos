@@ -37,6 +37,7 @@
             this.Zwierze = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Rzecz = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Imie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonWyniki = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewTabela
@@ -58,6 +59,8 @@
             this.listViewTabela.TabIndex = 1;
             this.listViewTabela.UseCompatibleStateImageBehavior = false;
             this.listViewTabela.View = System.Windows.Forms.View.Details;
+            this.listViewTabela.Visible = false;
+            this.listViewTabela.VisibleChanged += new System.EventHandler(this.listViewTabela_VisibleChanged);
             // 
             // Litera
             // 
@@ -106,10 +109,21 @@
             this.Imie.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Imie.Width = 93;
             // 
+            // buttonWyniki
+            // 
+            this.buttonWyniki.Location = new System.Drawing.Point(304, 135);
+            this.buttonWyniki.Name = "buttonWyniki";
+            this.buttonWyniki.Size = new System.Drawing.Size(75, 23);
+            this.buttonWyniki.TabIndex = 2;
+            this.buttonWyniki.Text = "Wyniki";
+            this.buttonWyniki.UseVisualStyleBackColor = true;
+            this.buttonWyniki.Click += new System.EventHandler(this.buttonWyniki_Click);
+            // 
             // Tabela
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonWyniki);
             this.Controls.Add(this.listViewTabela);
             this.Name = "Tabela";
             this.Size = new System.Drawing.Size(700, 322);
@@ -128,5 +142,6 @@
         private System.Windows.Forms.ColumnHeader Rzecz;
         private System.Windows.Forms.ColumnHeader Imie;
         private System.Windows.Forms.ColumnHeader Gracz;
+        private System.Windows.Forms.Button buttonWyniki;
     }
 }
